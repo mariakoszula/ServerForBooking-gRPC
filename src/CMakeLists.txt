@@ -1,6 +1,6 @@
 set(BINARY_NAME ${CMAKE_PROJECT_NAME})
 
-set(SOURCES main.cpp BookingService.cpp)
+set(SOURCES main.cpp BookingService.cpp IBookingDatabase.cpp Booking.cpp)
 
 add_executable(${BINARY_NAME}_run ${SOURCES})
 add_library(${BINARY_NAME}_lib STATIC ${SOURCES})

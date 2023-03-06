@@ -1,15 +1,14 @@
-#include "booking_service.grpc.pb.h"
-#include <grpcpp/server_context.h>
+#include "BookingService.h"
 
-using namespace bookingservice;
-using grpc::ServerContext;
-using grpc::Status;
-class BookingServiceImpl final: public BookingService::Service {
-    Status ListMovies(ServerContext* context, const ListMoviesRequest* request, ListMoviesResponse* response) override {
-        [&](){return context;};
-        [&](){return request;};
-        [&](){return response;};
-        // TODO: implement listing movies
-        return grpc::Status::OK;
-    }
-};
+BookingServiceImpl::BookingServiceImpl(IDatabase &db) : db(db) {}
+Status BookingServiceImpl::ListMovies(ServerContext *context, const google::protobuf::Empty *request, ListMoviesResponse *response)
+{
+    [&]()
+    { return context; };
+    [&]()
+    { return request; };
+    [&]()
+    { return response; };
+    // TODO: implement listing movies
+    return grpc::Status::OK;
+}

@@ -11,6 +11,7 @@ Project is just for learning purpose of gRPC workflow.
 
 
 ## API
+Supported messages are in booking_service.proto file.
 
 ## Libraries
 - googletest

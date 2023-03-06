@@ -1,9 +1,9 @@
 syntax = "proto3";
-
+import "google/protobuf/empty.proto";
 package bookingservice;
 
 service BookingService {
-    rpc ListMovies (ListMoviesRequest) returns (ListMoviesResponse) {}
+    rpc ListMovies (google.protobuf.Empty) returns (ListMoviesResponse) {}
     rpc ListTheaters (Movie) returns (TheatersResponse) {}
     rpc ListSeats(SeatsRequest) returns (stream AvailableSeatsResponse) {}
     rpc BookTicket(TicketRequest) returns (TicketReponse) {}
@@ -29,9 +29,9 @@ message TheatersResponse{
 }
 
 message Seat{
-    int32 row = 1;
+    optional int32 row = 1;
     int32 seat_number = 2;
-    bool is_available  = 3;
+    optional bool is_available  = 3;
 }
 
 message SeatsRequest{

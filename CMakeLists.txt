@@ -21,7 +21,7 @@ include(FetchContent)
 endif()
 
 add_library(booking_service_proto_lib booking_service.proto)
-target_link_libraries(booking_service_proto_lib PUBLIC gRPC::grpc gRPC::grpc++ protobuf::libprotobuf)
+target_link_libraries(booking_service_proto_lib PUBLIC gRPC::grpc gRPC::grpc++ protobuf::libprotobuf z)
 
 get_target_property(grpc_cpp_plugin_location gRPC::grpc_cpp_plugin LOCATION)
 protobuf_generate(TARGET booking_service_proto_lib LANGUAGE cpp)
