@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package bookingservice;
+
+service BookingService {
+    rpc ListMovies (ListMoviesRequest) returns (ListMoviesResponse) {}
+    rpc ListTheaters (Movie) returns (TheatersResponse) {}
+    rpc ListSeats(SeatsRequest) returns (stream AvailableSeatsResponse) {}
+    rpc BookTicket(TicketRequest) returns (TicketReponse) {}
+}
+
+message Movie{
+    string title = 1;
+}
+
+message ListMoviesRequest{
+}
+
+message ListMoviesResponse{
+    repeated Movie movies = 1;
+}
+
+message Theater{
+    string name = 1;
+}
+
+message TheatersResponse{
+    repeated Theater theaters = 1;
+}
+
+message Seat{
+    int32 row = 1;
+    int32 seat_number = 2;
+    bool is_available  = 3;
+}
+
+message SeatsRequest{
+    Theater theater = 1;
+    Movie movie = 2;
+}
+
+message AvailableSeatsResponse {
+    Seat seat = 1;
+}
+
+message TicketRequest {
+    Theater theater = 1;
+    Movie movie = 2;
+    repeated Seat seats = 3;
+}
+
+message TicketReponse {
+    string ticketId = 1;
+}
+
