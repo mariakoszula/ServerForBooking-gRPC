@@ -1,4 +1,6 @@
 # ServerForBooking-gRPC
+[![CodeFactor](https://www.codefactor.io/repository/github/mariakoszula/serverforbooking-grpc/badge)](https://www.codefactor.io/repository/github/mariakoszula/serverforbooking-grpc)
+
 Simple backend service for displaying movies in theaters and booking seats. 
 Project is just for learning purpose of gRPC workflow.
 
@@ -13,6 +15,7 @@ Project is just for learning purpose of gRPC workflow.
 ## Libraries
 - googletest
 - gRPC
+- protobuf
 
 ## Build and run
 
