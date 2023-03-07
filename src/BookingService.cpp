@@ -1,14 +1,13 @@
 #include "BookingService.h"
-
+#include <iostream>
 BookingServiceImpl::BookingServiceImpl(IDatabase &db) : db(db) {}
-Status BookingServiceImpl::ListMovies(ServerContext *context, const google::protobuf::Empty *request, ListMoviesResponse *response)
+Status BookingServiceImpl::ListMovies([[maybe_unused]] ServerContext *context, [[maybe_unused]]  const google::protobuf::Empty *request, ListMoviesResponse *response)
 {
-    [&]()
-    { return context; };
-    [&]()
-    { return request; };
-    [&]()
-    { return response; };
-    // TODO: implement listing movies
+    auto movies = db.listMovies();
+    for (const auto &movie : movies)
+    {
+        auto movieResponse = response->add_movies();
+        movieResponse->set_title(movie);
+    }
     return grpc::Status::OK;
 }

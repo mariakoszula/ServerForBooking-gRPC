@@ -6,13 +6,23 @@
 #include <grpcpp/security/server_credentials.h>
 #include "BookingService.h"
 #include "IBookingDatabase.h"
+#include "DummyDataFiller.h"
 
 using namespace std;
 
-int main(){
+int main(int argc, char** argv){
+   std::string server_address("127.0.0.1");
+   std::string port("50051");
+   if (argc == 2) {
+      server_address = argv[1];
+   }
+   if (argc == 3){
+      port = argv[2];
+   }
    grpc::ServerBuilder builder;
    InMemoryDatabase db;
-   builder.AddListeningPort("localhost:50051", grpc::InsecureServerCredentials());
+   addBookings(db);
+   builder.AddListeningPort(server_address + ":" + port, grpc::InsecureServerCredentials());
    BookingServiceImpl service{db};
    builder.RegisterService(&service);
    std::unique_ptr<grpc::Server> server(builder.BuildAndStart());

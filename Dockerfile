@@ -1,9 +1,8 @@
 FROM ubuntu:22.04
 
-RUN apt-get update && apt-get install -y \
-  build-essential autoconf git pkg-config \
-  automake libtool curl make g++ unzip \
-  && apt-get clean
+RUN apt-get update && apt-get install -y build-essential autoconf git pkg-config \
+    automake libtool curl make g++ unzip \
+    && apt-get clean 
 
 ENV GRPC_RELEASE_TAG v1.47.5
 RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc && \

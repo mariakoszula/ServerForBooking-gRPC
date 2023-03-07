@@ -7,7 +7,7 @@ Booking::Booking(MovieStore movie, TheaterStore theater, SeatStore seat)
 {
 }
 
-MovieStore Booking::getMovie() const
+MovieStore Booking::getMovieStore() const
 {
     return movie;
 }

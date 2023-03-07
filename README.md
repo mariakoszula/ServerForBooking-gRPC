@@ -39,9 +39,15 @@ cmake --build .
 ```
 ### Run:
 ```sh
-./src/ServerForBooking-gRPC_run
+./src/ServerForBooking-gRPC_run <IP> <Port>
 ```
+IP: default is 127.0.0.1
+Port default is 50051
 ### Run tests:
 ```sh
 ./test/ServerForBooking-gRPC_test
+```
+### Postman Workspace for testing:
+```sh
+https://www.postman.com/grey-sunset-995258/workspace/serverforbooking-grpc
 ```

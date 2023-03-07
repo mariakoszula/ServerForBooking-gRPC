@@ -4,7 +4,7 @@ set<MovieStore> InMemoryDatabase::listMovies()
     set<MovieStore> movies;
     for (const auto& booking : bookings_)
     {
-        movies.insert(booking.getMovie());
+        movies.insert(booking.getMovieStore());
     }
     return movies;
 }

@@ -10,7 +10,7 @@ class Booking {
     static uint32_t booking_counter;
     public:
         Booking(MovieStore, TheaterStore, SeatStore);
-        MovieStore getMovie() const;
+        MovieStore getMovieStore() const;
     private:
         MovieStore movie;
         TheaterStore theater;
