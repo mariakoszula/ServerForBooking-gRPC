@@ -1,6 +1,6 @@
 #include "BookingService.h"
 #include <iostream>
-BookingServiceImpl::BookingServiceImpl(IDatabase &db) : db(db) {}
+BookingServiceImpl::BookingServiceImpl(IBookingDatabase &db) : db(db) {}
 Status BookingServiceImpl::ListMovies([[maybe_unused]] ServerContext *context, [[maybe_unused]]  const google::protobuf::Empty *request, ListMoviesResponse *response)
 {
     auto movies = db.listMovies();

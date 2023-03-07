@@ -11,9 +11,9 @@ using grpc::Status;
 
 class BookingServiceImpl final: public BookingService::Service {
     public:
-        explicit BookingServiceImpl(IDatabase& db);
+        explicit BookingServiceImpl(IBookingDatabase& db);
         Status ListMovies(ServerContext*, const google::protobuf::Empty*, ListMoviesResponse*) override;
     private:
-        IDatabase &db;
+        IBookingDatabase &db;
 };
 #endif // BOOKING_SERVICE_H

@@ -4,7 +4,7 @@ enable_testing()
 
 option(USE_SYSTEM_GOOGLETEST "Use system installed googletest" ON)
 if(USE_SYSTEM_GOOGLETEST)
-    find_package(GTest REQUIRED)
+    find_package(GTest CONFIG REQUIRED)
 else()
     include(FetchContent)
     FetchContent_Declare(
@@ -15,10 +15,10 @@ else()
     FetchContent_MakeAvailable(googletest)
 endif()
 
-set(SOURCES test_BookingService.cpp)
+set(SOURCES main.cpp test_BookingService.cpp test_InMemoryDatabase.cpp)
 
 add_executable(${TEST_BINARY_NAME} ${SOURCES})
-target_link_libraries(${TEST_BINARY_NAME} PUBLIC ${CMAKE_PROJECT_NAME}_lib GTest::GTest GTest::Main)
+target_link_libraries(${TEST_BINARY_NAME} PUBLIC ${CMAKE_PROJECT_NAME}_lib gtest gmock booking_service_proto_lib)
 
 include(GoogleTest)
 gtest_discover_tests(${TEST_BINARY_NAME})

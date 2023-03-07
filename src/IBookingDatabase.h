@@ -3,18 +3,18 @@
 #include <vector>
 #include <set>
 #include "Booking.h"
-
+#include <iostream>
 using namespace std;
 
-class IDatabase
+class IBookingDatabase
 {
 public:
-    virtual ~IDatabase() = default;
+    virtual ~IBookingDatabase() = default;
     virtual set<MovieStore> listMovies() = 0;
 };
 
 
-class InMemoryDatabase : public IDatabase
+class InMemoryDatabase : public IBookingDatabase
 {
 public:
     set<MovieStore> listMovies() override;
